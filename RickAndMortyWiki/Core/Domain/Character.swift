@@ -12,8 +12,8 @@ struct Character: Identifiable, Equatable, Sendable {
     let name: String
     let status: CharacterStatus
     let gender: CharacterGender
-    let origin: String
-    let location: String
+    let originName: String
+    let locationName: String
     let imageURL: URL
     let episodeIDs: [Int]
 }
