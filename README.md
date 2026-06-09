@@ -1,4 +1,9 @@
-# RickAndMortyWiki
+# RickAndMortyWiki <p> <img src="Docs/Logo/RickAndMortyWikiLogo.png" width="40" alt="AppLogo">
+
+![Swift](https://img.shields.io/badge/Swift-6.0-orange)
+![iOS](https://img.shields.io/badge/iOS-18.0%2B-lightgrey)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-blue)
+![Xcode](https://img.shields.io/badge/Xcode-16%2B-blue)
 
 A SwiftUI iOS application built with the public Rick and Morty API.
 
