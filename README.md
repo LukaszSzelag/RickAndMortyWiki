@@ -7,7 +7,7 @@ The goal of this project is to demonstrate a clean and maintainable approach to 
 ## Screenshots
 
 <p align="center">
-  <img src="Docs/Screenshots/characters-list.png" width="250" alt="Characters list screen">
+  <img src="Docs/Screenshots/character-list.png" width="250" alt="Characters list screen">
   <img src="Docs/Screenshots/favorite-characters" width="250" alt="Favorite characters highlight">
   <img src="Docs/Screenshots/character-details.png" width="250" alt="Character details screen">
   <img src="Docs/Screenshots/episode-details.png" width="250" alt="Episode details screen">
