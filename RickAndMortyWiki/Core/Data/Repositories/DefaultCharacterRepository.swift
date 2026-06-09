@@ -15,8 +15,12 @@ struct DefaultCharacterRepository: CharacterRepository {
     }
     
     func fetchCharacters(page: Int, name: String?) async throws -> CharactersPage {
-        let response: CharactersPageDTO = try await apiClient.request(.characters(page: page, name: name))
-        return response.toDomain()
+        do {
+            let response: CharactersPageDTO = try await apiClient.request(.characters(page: page, name: name))
+            return response.toDomain()
+        } catch ApiError.notFound {
+            return CharactersPage(items: [], totalCount: 0, hasNextPage: false)
+        }
     }
     
     func fetchCharactersByIDs(_ ids: [Int]) async throws -> [Character] {
