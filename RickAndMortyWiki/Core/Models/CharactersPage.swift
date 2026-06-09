@@ -10,5 +10,5 @@ import Foundation
 struct CharactersPage: Equatable, Sendable {
     let items: [Character]
     let totalCount: Int
-    let totalPages: Int
+    let hasNextPage: Bool
 }

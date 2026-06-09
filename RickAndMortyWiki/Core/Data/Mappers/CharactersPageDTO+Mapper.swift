@@ -12,7 +12,7 @@ extension CharactersPageDTO {
         CharactersPage(
             items: results.map { $0.toDomain() },
             totalCount: info.count,
-            totalPages: info.pages
+            hasNextPage: info.next != nil
         )
     }
 }

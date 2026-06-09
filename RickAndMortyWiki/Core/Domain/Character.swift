@@ -10,6 +10,7 @@ import Foundation
 struct Character: Identifiable, Equatable, Sendable {
     let id: Int
     let name: String
+    let species: String
     let status: CharacterStatus
     let gender: CharacterGender
     let originName: String

@@ -12,6 +12,7 @@ extension CharacterDTO {
         Character(
             id: id,
             name: name,
+            species: species,
             status: CharacterStatusMapper.map(status),
             gender: CharacterGenderMapper.map(gender),
             originName: origin.name,
