@@ -163,7 +163,7 @@ SwiftUI localized strings are used in views and navigation titles.
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/LukaszSzelag/RickAndMortyWiki.git)
 ```
 
 2. Open the project in Xcode:
