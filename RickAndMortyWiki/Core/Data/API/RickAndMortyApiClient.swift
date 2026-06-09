@@ -32,13 +32,12 @@ struct RickAndMortyApiClient: ApiClient {
         }
         
         guard (200..<300).contains(httpResponse.statusCode) else {
-            throw ApiError.invalidStatusCode(httpResponse.statusCode)
+            throw ApiError.fromCode(httpResponse.statusCode)
         }
         
         do {
             return try decoder.decode(T.self, from: data)
         } catch {
-            print(error)
             throw ApiError.decodingFailure
         }
     }

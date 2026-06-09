@@ -15,7 +15,7 @@ enum ApiEndpoint: Sendable {
     var path: String {
         switch self {
         case .characters:
-           return "character/"
+           return "character"
         case .charactersByIDs(let ids):
             return "character/\(ids.map { String($0) }.joined(separator: ","))"
         case .episode(let id):
