@@ -4,6 +4,16 @@ A SwiftUI iOS application built with the public Rick and Morty API.
 
 The goal of this project is to demonstrate a clean and maintainable approach to building an iOS app with SwiftUI, Swift Concurrency, MVVM, dependency injection, localization, previews and unit tests.
 
+## Screenshots
+
+<p align="center">
+  <img src="Docs/Screenshots/characters-list.png" width="250" alt="Characters list screen">
+  <img src="Docs/Screenshots/favorite-characters" width="250" alt="Favorite characters highlight">
+  <img src="Docs/Screenshots/character-details.png" width="250" alt="Character details screen">
+  <img src="Docs/Screenshots/episode-details.png" width="250" alt="Episode details screen">
+  <img src="Docs/Screenshots/dark-mode.png" width="250" alt="Dark Mode feature highlight">
+</p>
+
 ## Features
 
 - Browse Rick and Morty characters
