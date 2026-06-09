@@ -133,6 +133,36 @@ Preview and test dependencies use mock repositories.
 
 This makes the app easier to preview, test and extend.
 
+## 🌐 API
+
+This project uses the public Rick and Morty API.
+
+The app fetches:
+
+- characters,
+- episodes,
+- paginated character lists,
+- character details by IDs.
+
+## ✅ Project Goals
+
+This project focuses on:
+
+- clean separation of responsibilities,
+- readable and testable code,
+- modern SwiftUI patterns,
+- async/await networking,
+- simple dependency injection,
+- pragmatic architecture without overengineering.
+
+## 📺 Screens
+
+Screens implemented in the app:
+
+- Characters List
+- Character Details
+- Episode Details
+
 ## 🧪 Testing
 
 The project includes unit tests written with Swift Testing.
@@ -176,36 +206,6 @@ open RickAndMortyWiki.xcodeproj
 
 4. Build and run the app.
 
-## API
-
-This project uses the public Rick and Morty API.
-
-The app fetches:
-
-- characters,
-- episodes,
-- paginated character lists,
-- character details by IDs.
-
-## Project Goals
-
-This project focuses on:
-
-- clean separation of responsibilities,
-- readable and testable code,
-- modern SwiftUI patterns,
-- async/await networking,
-- simple dependency injection,
-- pragmatic architecture without overengineering.
-
-## Screens
-
-Screens implemented in the app:
-
-- Characters List
-- Character Details
-- Episode Details
-
 ## Notes
 
-This project was created as a learning and portfolio project to practice building a modern SwiftUI application with production-like structure.
+Developer building log can be found in Docs/DeveloperLog where architecture, tech and design decisions are described. You are welcome to give a look 👀
