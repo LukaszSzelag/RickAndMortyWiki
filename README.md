@@ -1,4 +1,4 @@
-# RickAndMortyWiki <p> <img src="Docs/Logo/RickAndMortyWikiLogo.png" width="40" alt="AppLogo"> </p>
+# RickAndMortyWiki <p> <img src="Docs/Logo/RIckAndMortyWikiLogo.png" width="40" alt="AppLogo"> </p>
 
 ![Swift](https://img.shields.io/badge/Swift-6.0-orange)
 ![iOS](https://img.shields.io/badge/iOS-18.0%2B-lightgrey)
