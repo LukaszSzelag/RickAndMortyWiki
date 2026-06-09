@@ -12,7 +12,7 @@ A SwiftUI iOS application built with the public Rick and Morty API.
 
 The goal of this project is to demonstrate a clean and maintainable approach to building an iOS app with SwiftUI, Swift Concurrency, MVVM, dependency injection, localization, previews and unit tests.
 
-## Screenshots
+## 📱 Screenshots
 
 <p align="center">
   <img src="Docs/Screenshots/character-list.png" width="250" alt="Characters list screen">
@@ -22,7 +22,7 @@ The goal of this project is to demonstrate a clean and maintainable approach to 
   <img src="Docs/Screenshots/dark-mode.png" width="250" alt="Dark Mode feature highlight">
 </p>
 
-## Features
+## 🚀 Features
 
 - Browse Rick and Morty characters
 - Search characters by name
@@ -36,21 +36,20 @@ The goal of this project is to demonstrate a clean and maintainable approach to 
 - SwiftUI previews with mocked data
 - Unit tests for ViewModels
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Swift 6
 - SwiftUI
 - Swift Concurrency
-- Observation framework
 - URLSession
 - MVVM
-- Light Clean Architecture
+- Clean Architecture
 - Dependency Injection
 - Swift Testing
 - String Catalogs localization
 - Xcode
 
-## Architecture
+## 🧭 Architecture
 
 The project uses a lightweight MVVM architecture with a clear separation between presentation, domain and data layers.
 
@@ -67,13 +66,15 @@ SwiftUI View
 → View
 ```
 
-### Main layers
+### 📚 Main layers
 
 ```text
 Core
 ├── Domain
 │   ├── Entities
 │   └── Repositories
+│   
+├── Models
 │
 ├── Data
 │   ├── API
@@ -96,7 +97,7 @@ PreviewSupport
 └── Repositories
 ```
 
-## Data Flow
+## 🌊 Data Flow
 
 The app keeps the domain layer independent from API and UI details.
 
@@ -114,7 +115,7 @@ CharacterDTO
 
 This keeps SwiftUI views focused on rendering UI and keeps networking details outside the presentation layer.
 
-## Dependency Injection
+## 👉🏻 Dependency Injection
 
 The app uses a simple dependency container:
 
@@ -132,31 +133,32 @@ Preview and test dependencies use mock repositories.
 
 This makes the app easier to preview, test and extend.
 
-## Testing
+## 🧪 Testing
 
 The project includes unit tests written with Swift Testing.
 
 Current test coverage focuses on ViewModels:
 
 - `CharactersListViewModel`
+- `CharactersDetailsViewModel`
 - `EpisodeDetailsViewModel`
 - favorite characters behavior
 - loading, empty and error states
 - search and pagination logic
 
-## Localization
+## 🔤 Localization
 
 The app uses `Localizable.xcstrings` for localization.
 
 SwiftUI localized strings are used in views and navigation titles.
 
-## Requirements
+## 📖 Requirements
 
 - Xcode 16 or newer
 - iOS 18.0+
 - Swift 6
 
-## Getting Started
+## 📦 Getting Started
 
 1. Clone the repository:
 
