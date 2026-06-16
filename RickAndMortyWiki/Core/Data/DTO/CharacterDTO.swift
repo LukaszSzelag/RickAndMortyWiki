@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterDTO: Decodable, Sendable {
+struct CharacterDTO {
     let id: Int
     let name: String
     let status: String
@@ -35,4 +35,16 @@ extension CharacterDTO {
             episodeURLs: episode
         )
     }
+}
+
+extension CharacterDTO: ApiResource {
+    enum Filter: String, CaseIterable, Sendable, Hashable {
+        case name
+        case status
+        case species
+        case type
+        case gender
+    }
+    
+    static let endpointType: ApiEndpointType = .character
 }

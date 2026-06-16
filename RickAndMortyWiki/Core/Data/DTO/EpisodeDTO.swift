@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EpisodeDTO: Decodable, Sendable {
+struct EpisodeDTO {
     let id: Int
     let name: String
     let airDate: String
@@ -33,4 +33,14 @@ extension EpisodeDTO {
             characterURLs: characters
         )
     }
+    
+}
+
+extension EpisodeDTO: ApiResource {
+    enum Filter: String, CaseIterable, Sendable, Hashable {
+        case name
+        case episode
+    }
+    
+    static let endpointType: ApiEndpointType = .episode
 }

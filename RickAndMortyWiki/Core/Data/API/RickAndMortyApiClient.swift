@@ -8,27 +8,22 @@
 import Foundation
 
 struct RickAndMortyApiClient: ApiClient {
-    private let baseURL: URL
-    private let session: URLSession
-    private let decoder: JSONDecoder
+    let baseURL: URL = URL(string: "https://rickandmortyapi.com/api")!
+    private let decoder: JSONDecoder = JSONDecoder()
      
-    init(
-        baseURL: URL = URL(string: "https://rickandmortyapi.com/api")!,
-        session: URLSession = .shared,
-        decoder: JSONDecoder = JSONDecoder()
-    ) {
-        self.baseURL = baseURL
+    private let session: URLSession
+    
+    init(session: URLSession = .shared) {
         self.session = session
-        self.decoder = decoder
     }
     
-    func request<T: Decodable & Sendable>(_ endpoint: ApiEndpoint) async throws -> T {
-        let url = try makeURL(for: endpoint)
+    func request<E: ApiEndpoint>(endpoint: E) async throws -> E.Response {
+        let url = try makeURL(from: endpoint)
         
         let (data, response) = try await session.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw ApiError.invalidResponse
+            throw ApiError.badRequest
         }
         
         guard (200..<300).contains(httpResponse.statusCode) else {
@@ -36,17 +31,14 @@ struct RickAndMortyApiClient: ApiClient {
         }
         
         do {
-            return try decoder.decode(T.self, from: data)
+            return try decoder.decode(E.Response.self, from: data)
         } catch {
             throw ApiError.decodingFailure
         }
     }
     
-    private func makeURL(for endpoint: ApiEndpoint) throws -> URL {
-        var components = URLComponents(
-            url: baseURL.appending(path: endpoint.path),
-            resolvingAgainstBaseURL: false
-        )
+    private func makeURL(from endpoint: any ApiEndpoint) throws -> URL {
+        var components = URLComponents(url: baseURL.appending(path: endpoint.path), resolvingAgainstBaseURL: false)
         
         if !endpoint.queryItems.isEmpty {
             components?.queryItems = endpoint.queryItems

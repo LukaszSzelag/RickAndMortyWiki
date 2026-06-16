@@ -8,5 +8,7 @@
 import Foundation
 
 protocol EpisodeRepository: Sendable {
-    func fetchEpisode(id: Int) async throws -> Episode
+    func fetchEpisodes(page: Int, filters: [EpisodeDTO.Filter : String]) async throws -> PageResponse<Episode>
+    func fetchEpisodeByID(_ id: Int) async throws -> Episode
+    func fetchEpisodesByIDs(_ ids: [Int]) async throws -> [Episode]
 }

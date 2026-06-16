@@ -20,13 +20,13 @@ struct PageInfoDTO: Decodable, Sendable {
 }
 
 extension PageResponseDTO {
-    func toDomain() -> PageResponse<Item> {
-        return PageResponse<Item>(
+    func toDomain<DomainItem>(mapItem: (Item) -> DomainItem) -> PageResponse<DomainItem> {
+        return PageResponse<DomainItem>(
             itemCount: info.count,
             pagesCount: info.pages,
             hasNextPage: info.next != nil,
             hasPreviousPage: info.prev != nil,
-            itemsOnPage: results
+            itemsOnPage: results.map(mapItem)
         )
     }
 }

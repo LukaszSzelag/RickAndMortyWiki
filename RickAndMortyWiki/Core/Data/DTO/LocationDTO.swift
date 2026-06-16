@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationDTO: Decodable, Sendable {
+struct LocationDTO {
     let id: Int
     let name: String
     let type: String
@@ -25,4 +25,14 @@ extension LocationDTO {
             residents: residents
         )
     }
+}
+
+extension LocationDTO: ApiResource {
+    enum Filter: String, CaseIterable, Sendable, Hashable {
+        case name
+        case type
+        case dimension
+    }
+    
+    static let endpointType: ApiEndpointType = .location
 }

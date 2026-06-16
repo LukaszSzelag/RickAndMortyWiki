@@ -14,26 +14,33 @@ struct DefaultCharacterRepository: CharacterRepository {
         self.apiClient = apiClient
     }
     
-    func fetchCharacters(page: Int, name: String?) async throws -> CharactersPage {
+    func fetchCharacters(page: Int, filters: [CharacterDTO.Filter : String]) async throws -> PageResponse<Character> {
         do {
-            let response: CharactersPageDTO = try await apiClient.request(.characters(page: page, name: name))
-            return response.toDomain()
+            let characterPageResponse: PageResponseDTO<CharacterDTO> = try await apiClient.request(endpoint: GetItemsPage(page: page, filters: filters))
+            
+            return characterPageResponse.toDomain { $0.toDomain() }
+            
         } catch ApiError.notFound {
-            return CharactersPage(items: [], totalCount: 0, hasNextPage: false)
+            return PageResponse<Character>(itemCount: 0, pagesCount: 0, hasNextPage: false, hasPreviousPage: false, itemsOnPage: [])
         }
+    }
+    
+    func fetchCharacterByID(_ id: Int) async throws -> Character {
+        let characterResponse: CharacterDTO = try await apiClient.request(endpoint: GetSingleItem(id: id))
+        
+        return characterResponse.toDomain()
     }
     
     func fetchCharactersByIDs(_ ids: [Int]) async throws -> [Character] {
         guard !ids.isEmpty else { return [] }
         
         if ids.count == 1 {
-            let dto: CharacterDTO = try await apiClient.request(.charactersByIDs(ids))
-            
-            return [dto.toDomain()]
+            let character: Character = try await fetchCharacterByID(ids[0])
+            return [character]
         } else {
-            let dtos: [CharacterDTO] = try await apiClient.request(.charactersByIDs(ids))
+            let charactersResponse: [CharacterDTO] = try await apiClient.request(endpoint: GetMultipleItems(ids: ids))
             
-            return dtos.map { $0.toDomain() }
+            return charactersResponse.map { $0.toDomain() }
         }
     }
 }

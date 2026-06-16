@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ApiClient: Sendable {
-    func request<T: Decodable & Sendable>(_ endpoint: ApiEndpoint) async throws -> T
+    var baseURL: URL { get }
+    func request<E: ApiEndpoint>(endpoint: E) async throws -> E.Response
 }
