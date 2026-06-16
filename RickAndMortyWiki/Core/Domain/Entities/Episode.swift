@@ -12,5 +12,5 @@ struct Episode: Identifiable, Equatable, Sendable {
     let name: String
     let airDate: String
     let episodeCode: String
-    let characterIDs: [Int]
+    let characterURLs: [URL]
 }

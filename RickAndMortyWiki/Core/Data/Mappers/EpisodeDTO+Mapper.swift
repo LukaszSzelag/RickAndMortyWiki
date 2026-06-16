@@ -7,14 +7,4 @@
 
 import Foundation
 
-extension EpisodeDTO {
-    func toDomain() -> Episode {
-        Episode(
-            id: id,
-            name: name,
-            airDate: airDate,
-            episodeCode: episode,
-            characterIDs: characters.compactMap { Int($0.lastPathComponent) }
-        )
-    }
-}
+

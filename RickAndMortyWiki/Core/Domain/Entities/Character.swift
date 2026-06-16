@@ -10,13 +10,14 @@ import Foundation
 struct Character: Identifiable, Equatable, Sendable {
     let id: Int
     let name: String
-    let species: String
     let status: CharacterStatus
+    let species: String
+    let type: String
     let gender: CharacterGender
-    let originName: String
-    let locationName: String
+    let originLocationReference: CharacterLocationReference
+    let lastSeenLocationReference: CharacterLocationReference
     let imageURL: URL
-    let episodeIDs: [Int]
+    let episodeURLs: [URL]
 }
 
 enum CharacterStatus: String, Sendable {
