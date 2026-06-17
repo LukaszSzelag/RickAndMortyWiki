@@ -9,20 +9,33 @@ import Foundation
 
 #if DEBUG
 struct MockCharacterRepository: CharacterRepository {
-    var charactersPageResult: Result<CharactersPage, Error>
+    var charactersPageResult: Result<PageResponse<Character>, Error>
+    var characterByIDResult: Result<Character, Error>
     var charactersByIDsResult: Result<[Character], Error>
     
     init(
-        charactersPageResult: Result<CharactersPage, Error>,
+        charactersPageResult: Result<PageResponse<Character>, Error>,
+        characterByIDResult: Result<Character, Error>,
         charactersByIDsResult: Result<[Character], Error>
     )
     {
         self.charactersPageResult = charactersPageResult
+        self.characterByIDResult = characterByIDResult
         self.charactersByIDsResult = charactersByIDsResult
     }
     
-    func fetchCharacters(page: Int, name: String?) async throws -> CharactersPage {
+    func fetchCharacters(page: Int, filters: [CharacterDTO.Filter : String]) async throws -> PageResponse<Character> {
         try charactersPageResult.get()
+    }
+    
+    func fetchCharacterByID(_ id: Int) async throws -> Character {
+        let mockCharacter = try characterByIDResult.get()
+        
+        if mockCharacter.id == id {
+            return mockCharacter
+        } else {
+            throw ApiError.notFound
+        }
     }
     
     func fetchCharactersByIDs(_ ids: [Int]) async throws -> [Character] {
