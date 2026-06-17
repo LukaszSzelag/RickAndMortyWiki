@@ -451,7 +451,7 @@ extension Character {
         ]
     )
     
-    static let mocks: [Character] = [
+    static let mockCharacters: [Character] = [
         mockRick,
         mockMorty,
         mockSummer,
