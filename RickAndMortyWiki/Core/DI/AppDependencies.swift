@@ -11,7 +11,7 @@ struct AppDependencies: Sendable {
     let characterRepository: any CharacterRepository
     let episodeRepository: any EpisodeRepository
     let locationRepository: any LocationRepository
-    let favoriteCharactersRepository: any FavoriteCharactersRepository
+    let favoritesRepository: any FavoritesRepository
 }
 
 extension AppDependencies {
@@ -22,7 +22,7 @@ extension AppDependencies {
             characterRepository: DefaultCharacterRepository(apiClient: apiClient),
             episodeRepository: DefaultEpisodeRepository(apiClient: apiClient),
             locationRepository: DefaultLocationRepository(apiClient: apiClient),
-            favoriteCharactersRepository: DefaultFavoriteCharactersRepository()
+            favoritesRepository: DefaultFavoritesRepository()
         )
     }
 }
@@ -45,13 +45,13 @@ extension AppDependencies {
             locationByIDResult: .success(.mockLoc1),
             locationsByIDsResult: .success(Location.mockLocations)
         )
-        let favoriteCharactersRepository = MockFavoriteCharactersRepository(ids: [1])
+        let favoritesRepository = MockFavoritesRepository(ids: [1, 2, 3])
         
         return AppDependencies(
             characterRepository: characterReposiotory,
             episodeRepository: episodeRepository,
             locationRepository: locationRepository,
-            favoriteCharactersRepository: favoriteCharactersRepository
+            favoritesRepository: favoritesRepository
         )
     }
     
@@ -71,13 +71,13 @@ extension AppDependencies {
             locationByIDResult: .success(.mockLoc1),
             locationsByIDsResult: .success([])
         )
-        let favoriteCharactersRepository = MockFavoriteCharactersRepository(ids: [])
+        let favoritesRepository = MockFavoritesRepository(ids: [])
         
         return AppDependencies(
             characterRepository: characterReposiotory,
             episodeRepository: episodeRepository,
             locationRepository: locationRepository,
-            favoriteCharactersRepository: favoriteCharactersRepository
+            favoritesRepository: favoritesRepository
         )
     }
     
@@ -97,13 +97,13 @@ extension AppDependencies {
             locationByIDResult: .failure(ApiError.fromCode(404)),
             locationsByIDsResult: .failure(ApiError.fromCode(403))
         )
-        let favoriteCharactersRepository = MockFavoriteCharactersRepository(ids: [])
+        let favoritesRepository = MockFavoritesRepository(ids: [])
         
         return AppDependencies(
             characterRepository: characterReposiotory,
             episodeRepository: episodeRepository,
             locationRepository: locationRepository,
-            favoriteCharactersRepository: favoriteCharactersRepository
+            favoritesRepository: favoritesRepository
         )
     }
 }

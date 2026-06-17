@@ -14,3 +14,7 @@ struct Location: Equatable, Identifiable, Sendable {
     let dimension: String
     let residents: [URL]
 }
+
+extension Location: Favoritable {
+    static let favoriteKey: String = "favoriteLocationsIDs"
+}

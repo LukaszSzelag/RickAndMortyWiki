@@ -32,3 +32,7 @@ enum CharacterGender: String, Sendable {
     case genderless
     case unknown
 }
+
+extension Character: Favoritable {
+    static let favoriteKey: String = "favoriteCharactersIDs"
+}

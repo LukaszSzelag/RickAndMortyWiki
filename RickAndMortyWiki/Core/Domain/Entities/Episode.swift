@@ -14,3 +14,7 @@ struct Episode: Identifiable, Equatable, Sendable {
     let episodeCode: String
     let characterURLs: [URL]
 }
+
+extension Episode: Favoritable {
+    static let favoriteKey: String = "favoriteEpisodesIDs"
+}
