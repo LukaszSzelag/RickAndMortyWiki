@@ -11,11 +11,11 @@ import Foundation
 extension PageResponse {
     static var mockCharacterPage: PageResponse<Character> {
         PageResponse<Character>(
-            itemCount: Character.mocks.count,
+            itemCount: Character.mockCharacters.count,
             pagesCount: 1,
             hasNextPage: true,
             hasPreviousPage: true,
-            itemsOnPage: Character.mocks
+            itemsOnPage: Character.mockCharacters
         )
     }
     

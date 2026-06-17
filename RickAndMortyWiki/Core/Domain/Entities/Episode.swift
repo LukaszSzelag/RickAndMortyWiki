@@ -16,5 +16,5 @@ struct Episode: Identifiable, Equatable, Sendable {
 }
 
 extension Episode: Favoritable {
-    static let favoriteKey: String = "favoriteEpisodesIDs"
+    static let favoritesKey: String = "favoriteEpisodesIDs"
 }

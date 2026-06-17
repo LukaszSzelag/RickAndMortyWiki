@@ -34,5 +34,5 @@ enum CharacterGender: String, Sendable {
 }
 
 extension Character: Favoritable {
-    static let favoriteKey: String = "favoriteCharactersIDs"
+    static let favoritesKey: String = "favoriteCharactersIDs"
 }

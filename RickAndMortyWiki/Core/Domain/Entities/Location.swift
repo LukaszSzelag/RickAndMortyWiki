@@ -16,5 +16,5 @@ struct Location: Equatable, Identifiable, Sendable {
 }
 
 extension Location: Favoritable {
-    static let favoriteKey: String = "favoriteLocationsIDs"
+    static let favoritesKey: String = "favoriteLocationsIDs"
 }
