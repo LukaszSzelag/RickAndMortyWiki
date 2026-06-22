@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct RootView: View {
-    private let dependencies: AppDependencies = AppDependencies.production()
+    let dependencies: AppDependencies
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            Tab("Home", systemImage: "house") {
+                HomeView()
+            }
+            
+            Tab("Characters", systemImage: "person") {
+                CharactersView(dependencies: dependencies)
+            }
+            
+            Tab("Episodes", systemImage: "tv") {
+                EpisodeListView()
+            }
+            
+            Tab("Locations", systemImage: "map") {
+                LocationListView()
+            }
+            
+            Tab("Home", systemImage: "magnifyingglass", role: .search) {
+                HomeView()
+            }
+        }
+        .tint(.appTeal)
     }
 }
 
 #Preview {
-    RootView()
+    let dependencies = AppDependencies.mockSuccess()
+    RootView(dependencies: dependencies)
 }

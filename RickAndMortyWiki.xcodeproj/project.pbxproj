@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		98B275AD2FE48011005B6355 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 98B275AC2FE48011005B6355 /* NukeUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9823BF552FD761F600FA5478 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B275AD2FE48011005B6355 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +118,7 @@
 			);
 			name = RickAndMortyWiki;
 			packageProductDependencies = (
+				98B275AC2FE48011005B6355 /* NukeUI */,
 			);
 			productName = RickAndMortyWiki;
 			productReference = 9866D5632FD07C2400141587 /* RickAndMortyWiki.app */;
@@ -147,6 +153,9 @@
 			);
 			mainGroup = 9866D55A2FD07C2400141587;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				98B275AB2FE48011005B6355 /* XCRemoteSwiftPackageReference "NukeUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9866D5642FD07C2400141587 /* Products */;
 			projectDirPath = "";
@@ -471,6 +480,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		98B275AB2FE48011005B6355 /* XCRemoteSwiftPackageReference "NukeUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/NukeUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98B275AC2FE48011005B6355 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98B275AB2FE48011005B6355 /* XCRemoteSwiftPackageReference "NukeUI" */;
+			productName = NukeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9866D55B2FD07C2400141587 /* Project object */;
 }

@@ -392,6 +392,9 @@
         }
       }
     },
+    "Characters" : {
+
+    },
     "characters.empty.description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -629,6 +632,18 @@
           }
         }
       }
+    },
+    "Episodes" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Home" : {
+
+    },
+    "Locations" : {
+
     }
   },
   "version" : "1.1"

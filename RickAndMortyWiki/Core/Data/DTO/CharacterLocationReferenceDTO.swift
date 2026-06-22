@@ -9,14 +9,14 @@ import Foundation
 
 struct CharacterLocationReferenceDTO: Decodable, Sendable {
     let name: String
-    let url: URL
+    let url: String
 }
 
 extension CharacterLocationReferenceDTO {
     func toDomain() -> CharacterLocationReference {
         return CharacterLocationReference(
             name: name,
-            url: url
+            url: url.isEmpty ? nil : URL(string: url)!
         )
     }
 }

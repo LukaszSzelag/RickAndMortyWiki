@@ -9,5 +9,5 @@ import Foundation
 
 struct CharacterLocationReference: Equatable, Sendable {
     let name: String
-    let url: URL
+    let url: URL?
 }

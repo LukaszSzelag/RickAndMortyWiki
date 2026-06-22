@@ -13,7 +13,7 @@ struct RickAndMortyWikiApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CharactersListView(dependencies: dependencies)
+            RootView(dependencies: dependencies)
         }
     }
 }
